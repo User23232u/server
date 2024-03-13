@@ -5,18 +5,12 @@ import (
     "log"
     "os"
 
-    "github.com/joho/godotenv"
     "github.com/qiniu/qmgo"
 )
 
 var Client *qmgo.Client // Cambia 'client' a 'Client'
 
 func init() {
-    // Carga las variables de entorno desde el archivo .env
-    if err := godotenv.Load(); err != nil {
-        log.Print("No .env file found")
-    }
-
     // Obtén la cadena de conexión a MongoDB de una variable de entorno
     connectionString := os.Getenv("MONGODB_URI")
     if connectionString == "" {
